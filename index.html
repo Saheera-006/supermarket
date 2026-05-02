@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
 <<<<<<< HEAD
+=======
+<head>
+>>>>>>> e6a92c2e2ab4a9cf67c514f61c3f446e76ee24a9
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jagubar</title>
@@ -170,6 +174,7 @@
     .two-col, .three-col { grid-template-columns: 1fr; }
   }
 </style>
+<<<<<<< HEAD
 =======
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -568,4 +573,821 @@
   <script src="script.js"></script>
 </body>
 
+=======
+</head>
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-text">🛒 FreshMart</div>
+    <div class="logo-sub">Shop Management</div>
+  </div>
+  <nav class="nav">
+    <div class="nav-section">Main</div>
+    <div class="nav-item active" onclick="navigate('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-section">Store</div>
+    <div class="nav-item" onclick="navigate('products')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      Products
+      <span class="nav-badge" id="low-stock-count" style="display:none"></span>
+    </div>
+    <div class="nav-item" onclick="navigate('billing')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      New Bill
+    </div>
+    <div class="nav-item" onclick="navigate('bills')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Bill History
+    </div>
+    <div class="nav-section">Settings</div>
+    <div class="nav-item" onclick="navigate('categories')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Categories
+    </div>
+  </nav>
+  <div class="sidebar-footer">v1.0 · FreshMart &copy; 2025</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="page-title">Dashboard</div>
+    <div class="topbar-actions">
+      <button class="btn btn-outline btn-sm" onclick="navigate('billing')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New Bill
+      </button>
+      <span id="topbar-date" style="font-size:12px;color:var(--text3)"></span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- DASHBOARD PAGE -->
+    <div class="page active" id="page-dashboard">
+      <div id="low-stock-alert" class="alert-bar" style="display:none">
+        ⚠️ <strong id="low-stock-msg"></strong> — Check Products tab.
+      </div>
+      <div class="stats-grid" id="dashboard-stats"></div>
+      <div class="two-col">
+        <div class="card">
+          <div class="section-header"><span class="section-title">Sales — Last 7 Days</span></div>
+          <div class="bar-chart" id="sales-chart"></div>
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap" id="chart-labels"></div>
+        </div>
+        <div class="card">
+          <div class="section-header"><span class="section-title">Recent Bills</span></div>
+          <div id="recent-bills-list"></div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <div class="card">
+          <div class="section-header"><span class="section-title">Top Selling Products</span></div>
+          <div id="top-products-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div class="page" id="page-products">
+      <div class="section-header">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <div class="search-bar">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="form-input" style="width:220px;padding-left:34px" id="product-search" placeholder="Search products…" oninput="renderProducts()">
+          </div>
+          <select class="form-input" style="width:160px" id="category-filter" onchange="renderProducts()">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('product-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Product
+        </button>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Unit</th><th>Status</th><th>Actions</th>
+            </tr></thead>
+            <tbody id="products-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- BILLING PAGE -->
+    <div class="page" id="page-billing">
+      <div class="two-col" style="align-items:start">
+        <div>
+          <div class="card" style="margin-bottom:16px">
+            <div class="section-title" style="margin-bottom:14px">Customer Info</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Customer Name</label>
+                <input class="form-input" id="bill-customer" placeholder="Walk-in customer">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone (optional)</label>
+                <input class="form-input" id="bill-phone" placeholder="9XXXXXXXXX">
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-title" style="margin-bottom:14px">Add Items</div>
+            <div class="form-row" style="margin-bottom:12px">
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">Product</label>
+                <select class="form-input" id="bill-product" onchange="setBillQtyMax()">
+                  <option value="">Select product…</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0">
+                <label class="form-label">Qty</label>
+                <input class="form-input" id="bill-qty" type="number" min="1" value="1">
+              </div>
+            </div>
+            <button class="btn btn-outline" style="width:100%" onclick="addBillItem()">+ Add to Bill</button>
+          </div>
+        </div>
+        <div class="card" style="position:sticky;top:76px">
+          <div class="section-title" style="margin-bottom:14px">Bill Summary</div>
+          <div id="bill-items-list">
+            <div class="empty-state" style="padding:20px">
+              <div>No items added yet</div>
+            </div>
+          </div>
+          <div id="bill-totals" style="display:none">
+            <div class="bill-total-row"><span>Subtotal</span><span id="bill-subtotal" style="font-family:var(--mono)"></span></div>
+            <div class="bill-total-row" style="align-items:center">
+              <span>Discount (%)</span>
+              <input type="number" class="form-input" id="bill-discount" style="width:80px;text-align:right" value="0" min="0" max="100" oninput="updateBillTotals()">
+            </div>
+            <div class="bill-total-row"><span>Tax (GST 5%)</span><span id="bill-tax" style="font-family:var(--mono)"></span></div>
+            <div class="bill-total-row grand"><span>Total</span><span id="bill-grand" style="font-family:var(--mono)"></span></div>
+            <div style="display:flex;gap:10px;margin-top:16px">
+              <button class="btn btn-outline" style="flex:1" onclick="clearBill()">Clear</button>
+              <button class="btn btn-primary" style="flex:1" onclick="generateBill()">Generate Bill</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BILLS HISTORY PAGE -->
+    <div class="page" id="page-bills">
+      <div class="section-header">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <div class="search-bar">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="form-input" style="width:220px;padding-left:34px" id="bill-search" placeholder="Search bills…" oninput="renderBills()">
+          </div>
+        </div>
+        <span id="bills-total-display" style="font-size:13px;color:var(--text2)"></span>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>Bill #</th><th>Date</th><th>Customer</th><th>Items</th><th>Total</th><th>Actions</th>
+            </tr></thead>
+            <tbody id="bills-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORIES PAGE -->
+    <div class="page" id="page-categories">
+      <div class="section-header">
+        <span class="section-title">Manage Categories</span>
+        <button class="btn btn-primary" onclick="openModal('category-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Category
+        </button>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Category Name</th><th>Products</th><th>Actions</th></tr></thead>
+            <tbody id="categories-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="product-modal-title">Add Product</div>
+      <button class="modal-close" onclick="closeModal('product-modal')">&times;</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Product Name *</label>
+        <input class="form-input" id="p-name" placeholder="e.g. Basmati Rice">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category *</label>
+        <select class="form-input" id="p-cat"><option value="">Select…</option></select>
+      </div>
+    </div>
+    <div class="form-row-3">
+      <div class="form-group">
+        <label class="form-label">Price (₹) *</label>
+        <input class="form-input" id="p-price" type="number" min="0" step="0.01" placeholder="0.00">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stock Qty *</label>
+        <input class="form-input" id="p-stock" type="number" min="0" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Unit</label>
+        <select class="form-input" id="p-unit">
+          <option>kg</option><option>g</option><option>L</option><option>ml</option><option>pcs</option><option>pack</option><option>dozen</option><option>box</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Low Stock Alert (qty)</label>
+        <input class="form-input" id="p-lowstock" type="number" min="0" value="5">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Barcode / SKU</label>
+        <input class="form-input" id="p-sku" placeholder="optional">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('product-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveProduct()">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY MODAL -->
+<div class="modal-overlay" id="category-modal">
+  <div class="modal" style="width:380px">
+    <div class="modal-header">
+      <div class="modal-title">Add Category</div>
+      <button class="modal-close" onclick="closeModal('category-modal')">&times;</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Category Name *</label>
+      <input class="form-input" id="cat-name" placeholder="e.g. Dairy & Eggs">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('category-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveCategory()">Add Category</button>
+    </div>
+  </div>
+</div>
+
+<!-- BILL RECEIPT MODAL -->
+<div class="modal-overlay" id="receipt-modal">
+  <div class="modal" style="width:480px">
+    <div class="modal-header">
+      <div class="modal-title">Bill Generated ✓</div>
+      <button class="modal-close" onclick="closeModal('receipt-modal')">&times;</button>
+    </div>
+    <div id="receipt-content" class="receipt"></div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('receipt-modal')">Close</button>
+      <button class="btn btn-primary" onclick="printBill()">🖨️ Print</button>
+    </div>
+  </div>
+</div>
+
+<!-- BILL DETAIL MODAL -->
+<div class="modal-overlay" id="bill-detail-modal">
+  <div class="modal" style="width:480px">
+    <div class="modal-header">
+      <div class="modal-title" id="bill-detail-title">Bill Details</div>
+      <button class="modal-close" onclick="closeModal('bill-detail-modal')">&times;</button>
+    </div>
+    <div id="bill-detail-content" class="receipt"></div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('bill-detail-modal')">Close</button>
+      <button class="btn btn-primary" onclick="printBillDetail()">🖨️ Print</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ──────────────────────────────────────────────
+// DATA STORE
+// ──────────────────────────────────────────────
+let categories = JSON.parse(localStorage.getItem('gm_cats') || '[]');
+let products = JSON.parse(localStorage.getItem('gm_products') || '[]');
+let bills = JSON.parse(localStorage.getItem('gm_bills') || '[]');
+let billItems = []; // current bill in progress
+let editingProductId = null;
+let billCounter = parseInt(localStorage.getItem('gm_billcounter') || '1000');
+
+// Seed data if empty
+if (categories.length === 0) {
+  categories = [
+    { id: 'c1', name: 'Grains & Pulses' },
+    { id: 'c2', name: 'Dairy & Eggs' },
+    { id: 'c3', name: 'Vegetables' },
+    { id: 'c4', name: 'Fruits' },
+    { id: 'c5', name: 'Beverages' },
+    { id: 'c6', name: 'Snacks' },
+    { id: 'c7', name: 'Oils & Spices' },
+  ];
+  saveData();
+}
+if (products.length === 0) {
+  products = [
+    { id:'p1', name:'Basmati Rice', cat:'c1', price:80, stock:50, unit:'kg', lowStock:5, sku:'SKU001' },
+    { id:'p2', name:'Toor Dal', cat:'c1', price:120, stock:30, unit:'kg', lowStock:5, sku:'SKU002' },
+    { id:'p3', name:'Full Cream Milk', cat:'c2', price:28, stock:4, unit:'L', lowStock:5, sku:'SKU003' },
+    { id:'p4', name:'Amul Butter', cat:'c2', price:55, stock:20, unit:'pcs', lowStock:5, sku:'SKU004' },
+    { id:'p5', name:'Tomatoes', cat:'c3', price:30, stock:15, unit:'kg', lowStock:5, sku:'SKU005' },
+    { id:'p6', name:'Onions', cat:'c3', price:25, stock:40, unit:'kg', lowStock:5, sku:'SKU006' },
+    { id:'p7', name:'Bananas', cat:'c4', price:40, stock:3, unit:'dozen', lowStock:5, sku:'SKU007' },
+    { id:'p8', name:'Sunflower Oil', cat:'c7', price:140, stock:12, unit:'L', lowStock:5, sku:'SKU008' },
+    { id:'p9', name:'Maggi Noodles', cat:'c6', price:14, stock:60, unit:'pcs', lowStock:10, sku:'SKU009' },
+    { id:'p10', name:'Tata Tea Premium', cat:'c5', price:90, stock:25, unit:'pcs', lowStock:5, sku:'SKU010' },
+  ];
+  saveData();
+}
+if (bills.length === 0) {
+  // seed a few sample bills
+  const now = Date.now();
+  bills = [
+    { id:'b1001', num:1001, date: now - 86400000*6, customer:'Ravi Kumar', phone:'9876543210', items:[{pid:'p1',name:'Basmati Rice',price:80,qty:2,unit:'kg'},{pid:'p9',name:'Maggi Noodles',price:14,qty:5,unit:'pcs'}], subtotal:230, discount:0, tax:11.5, total:241.5 },
+    { id:'b1002', num:1002, date: now - 86400000*5, customer:'Priya S', phone:'', items:[{pid:'p3',name:'Full Cream Milk',price:28,qty:3,unit:'L'},{pid:'p4',name:'Amul Butter',price:55,qty:1,unit:'pcs'}], subtotal:139, discount:5, tax:6.6275, total:138.6275 },
+    { id:'b1003', num:1003, date: now - 86400000*4, customer:'Walk-in', phone:'', items:[{pid:'p5',name:'Tomatoes',price:30,qty:2,unit:'kg'},{pid:'p6',name:'Onions',price:25,qty:3,unit:'kg'}], subtotal:135, discount:0, tax:6.75, total:141.75 },
+    { id:'b1004', num:1004, date: now - 86400000*3, customer:'Sundar M', phone:'9988776655', items:[{pid:'p8',name:'Sunflower Oil',price:140,qty:2,unit:'L'},{pid:'p10',name:'Tata Tea Premium',price:90,qty:1,unit:'pcs'}], subtotal:370, discount:10, tax:17.575, total:350.575 },
+    { id:'b1005', num:1005, date: now - 86400000*2, customer:'Kavitha R', phone:'', items:[{pid:'p2',name:'Toor Dal',price:120,qty:1,unit:'kg'},{pid:'p7',name:'Bananas',price:40,qty:2,unit:'dozen'}], subtotal:200, discount:0, tax:10, total:210 },
+    { id:'b1006', num:1006, date: now - 86400000*1, customer:'Walk-in', phone:'', items:[{pid:'p9',name:'Maggi Noodles',price:14,qty:10,unit:'pcs'},{pid:'p1',name:'Basmati Rice',price:80,qty:5,unit:'kg'}], subtotal:540, discount:0, tax:27, total:567 },
+    { id:'b1007', num:1007, date: now, customer:'Anand P', phone:'9123456789', items:[{pid:'p4',name:'Amul Butter',price:55,qty:2,unit:'pcs'},{pid:'p10',name:'Tata Tea Premium',price:90,qty:2,unit:'pcs'}], subtotal:290, discount:0, tax:14.5, total:304.5 },
+  ];
+  billCounter = 1008;
+  saveData();
+}
+
+function saveData() {
+  localStorage.setItem('gm_cats', JSON.stringify(categories));
+  localStorage.setItem('gm_products', JSON.stringify(products));
+  localStorage.setItem('gm_bills', JSON.stringify(bills));
+  localStorage.setItem('gm_billcounter', billCounter);
+}
+
+// ──────────────────────────────────────────────
+// NAVIGATION
+// ──────────────────────────────────────────────
+const pageTitles = { dashboard:'Dashboard', products:'Products', billing:'New Bill', bills:'Bill History', categories:'Categories' };
+
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + page + "'")) n.classList.add('active');
+  });
+  document.getElementById('page-title').textContent = pageTitles[page] || page;
+  if (page === 'dashboard') renderDashboard();
+  if (page === 'products') { renderProducts(); populateCategoryFilter(); }
+  if (page === 'billing') populateBillingProducts();
+  if (page === 'bills') renderBills();
+  if (page === 'categories') renderCategories();
+  checkLowStock();
+}
+
+// ──────────────────────────────────────────────
+// DASHBOARD
+// ──────────────────────────────────────────────
+function renderDashboard() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayBills = bills.filter(b => new Date(b.date) >= today);
+  const weekAgo = Date.now() - 7*86400000;
+  const weekBills = bills.filter(b => b.date >= weekAgo);
+  const totalRevenue = bills.reduce((s,b) => s + b.total, 0);
+  const todayRevenue = todayBills.reduce((s,b) => s + b.total, 0);
+  const weekRevenue = weekBills.reduce((s,b) => s + b.total, 0);
+  const lowStockCount = products.filter(p => p.stock <= p.lowStock).length;
+
+  document.getElementById('dashboard-stats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Today's Revenue</div><div class="stat-value">₹${fmt(todayRevenue)}</div><div class="stat-sub">${todayBills.length} bill(s) today</div></div>
+    <div class="stat-card"><div class="stat-label">Weekly Revenue</div><div class="stat-value">₹${fmt(weekRevenue)}</div><div class="stat-sub">Last 7 days</div></div>
+    <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value">₹${fmt(totalRevenue)}</div><div class="stat-sub">${bills.length} bills total</div></div>
+    <div class="stat-card"><div class="stat-label">Low Stock Items</div><div class="stat-value" style="color:${lowStockCount>0?'var(--warn)':'var(--accent)'}">${lowStockCount}</div><div class="stat-sub">${products.length} products total</div></div>
+  `;
+
+  // Bar chart - last 7 days
+  const days = [];
+  for (let i=6; i>=0; i--) {
+    const d = new Date(); d.setDate(d.getDate()-i); d.setHours(0,0,0,0);
+    const next = new Date(d); next.setDate(next.getDate()+1);
+    const rev = bills.filter(b => b.date >= d.getTime() && b.date < next.getTime()).reduce((s,b)=>s+b.total,0);
+    days.push({ label: d.toLocaleDateString('en-IN',{weekday:'short'}), rev });
+  }
+  const maxRev = Math.max(...days.map(d=>d.rev), 1);
+  document.getElementById('sales-chart').innerHTML = days.map(d => `
+    <div class="bar-wrap">
+      <div class="bar" style="height:${Math.max((d.rev/maxRev)*100,4)}%" title="₹${fmt(d.rev)}"></div>
+      <div class="bar-label">${d.label}</div>
+    </div>
+  `).join('');
+
+  // Recent bills
+  const recent = [...bills].sort((a,b)=>b.date-a.date).slice(0,5);
+  document.getElementById('recent-bills-list').innerHTML = recent.length ? recent.map(b=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)">
+      <div>
+        <div style="font-size:13px;font-weight:500">#${b.num} · ${b.customer}</div>
+        <div style="font-size:11.5px;color:var(--text3)">${new Date(b.date).toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:13px;font-weight:500">₹${fmt(b.total)}</div>
+    </div>
+  `).join('') : '<div class="empty-state">No bills yet</div>';
+
+  // Top products by qty sold
+  const sold = {};
+  bills.forEach(b => b.items.forEach(it => { sold[it.name]=(sold[it.name]||0)+it.qty; }));
+  const topP = Object.entries(sold).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  document.getElementById('top-products-list').innerHTML = topP.length ? `
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+      <thead><tr><th style="text-align:left;padding:8px 0;font-size:11.5px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.4px">Product</th><th style="text-align:right;padding:8px 0;font-size:11.5px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.4px">Qty Sold</th></tr></thead>
+      <tbody>${topP.map(([name,qty])=>`<tr><td style="padding:10px 0;border-top:1px solid var(--border)">${name}</td><td style="text-align:right;padding:10px 0;border-top:1px solid var(--border);font-family:var(--mono)">${qty}</td></tr>`).join('')}</tbody>
+    </table>
+  ` : '<div class="empty-state">No sales data</div>';
+}
+
+// ──────────────────────────────────────────────
+// PRODUCTS
+// ──────────────────────────────────────────────
+function renderProducts() {
+  const q = (document.getElementById('product-search').value||'').toLowerCase();
+  const cf = document.getElementById('category-filter').value;
+  let list = products.filter(p => {
+    const matchQ = !q || p.name.toLowerCase().includes(q) || (p.sku||'').toLowerCase().includes(q);
+    const matchC = !cf || p.cat === cf;
+    return matchQ && matchC;
+  });
+  const tbody = document.getElementById('products-table');
+  if (!list.length) { tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state">No products found</div></td></tr>'; return; }
+  tbody.innerHTML = list.map(p => {
+    const cat = categories.find(c=>c.id===p.cat);
+    const low = p.stock <= p.lowStock;
+    const statusBadge = low ? `<span class="badge badge-orange">Low Stock</span>` : `<span class="badge badge-green">In Stock</span>`;
+    return `<tr>
+      <td><strong style="font-size:13.5px">${p.name}</strong>${p.sku?`<br><span style="font-size:11px;color:var(--text3)">${p.sku}</span>`:''}</td>
+      <td><span class="badge badge-blue">${cat?cat.name:'—'}</span></td>
+      <td style="font-family:var(--mono)">₹${fmt(p.price)}</td>
+      <td style="font-family:var(--mono)">${p.stock} ${p.unit}</td>
+      <td>${p.unit}</td>
+      <td>${statusBadge}</td>
+      <td>
+        <button class="btn btn-outline btn-sm" onclick="editProduct('${p.id}')">Edit</button>
+        <button class="btn btn-sm" style="border:1px solid var(--danger-light);color:var(--danger);background:transparent;margin-left:4px" onclick="deleteProduct('${p.id}')">Delete</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function populateCategoryFilter() {
+  const sel = document.getElementById('category-filter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">All Categories</option>' + categories.map(c=>`<option value="${c.id}"${c.id===cur?' selected':''}>${c.name}</option>`).join('');
+}
+
+function populateProductCatSelect() {
+  const sel = document.getElementById('p-cat');
+  sel.innerHTML = '<option value="">Select…</option>' + categories.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+function editProduct(id) {
+  const p = products.find(x=>x.id===id);
+  if (!p) return;
+  editingProductId = id;
+  populateProductCatSelect();
+  document.getElementById('product-modal-title').textContent = 'Edit Product';
+  document.getElementById('p-name').value = p.name;
+  document.getElementById('p-cat').value = p.cat;
+  document.getElementById('p-price').value = p.price;
+  document.getElementById('p-stock').value = p.stock;
+  document.getElementById('p-unit').value = p.unit;
+  document.getElementById('p-lowstock').value = p.lowStock;
+  document.getElementById('p-sku').value = p.sku||'';
+  openModal('product-modal');
+}
+
+function saveProduct() {
+  const name = document.getElementById('p-name').value.trim();
+  const cat = document.getElementById('p-cat').value;
+  const price = parseFloat(document.getElementById('p-price').value);
+  const stock = parseInt(document.getElementById('p-stock').value);
+  const unit = document.getElementById('p-unit').value;
+  const lowStock = parseInt(document.getElementById('p-lowstock').value)||5;
+  const sku = document.getElementById('p-sku').value.trim();
+  if (!name||!cat||isNaN(price)||isNaN(stock)) { toast('Please fill all required fields'); return; }
+  if (editingProductId) {
+    const idx = products.findIndex(p=>p.id===editingProductId);
+    products[idx] = { ...products[idx], name, cat, price, stock, unit, lowStock, sku };
+  } else {
+    products.push({ id:'p'+Date.now(), name, cat, price, stock, unit, lowStock, sku });
+  }
+  saveData(); closeModal('product-modal'); editingProductId=null;
+  renderProducts(); checkLowStock();
+  document.getElementById('product-modal-title').textContent='Add Product';
+  ['p-name','p-price','p-stock','p-sku'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('p-lowstock').value='5';
+  toast(editingProductId?'Product updated':'Product added');
+}
+
+function deleteProduct(id) {
+  if (!confirm('Delete this product?')) return;
+  products = products.filter(p=>p.id!==id);
+  saveData(); renderProducts(); checkLowStock();
+  toast('Product deleted');
+}
+
+// ──────────────────────────────────────────────
+// BILLING
+// ──────────────────────────────────────────────
+function populateBillingProducts() {
+  const sel = document.getElementById('bill-product');
+  const available = products.filter(p=>p.stock>0);
+  sel.innerHTML = '<option value="">Select product…</option>' + available.map(p=>`<option value="${p.id}">${p.name} — ₹${p.price}/${p.unit} (Stock: ${p.stock})</option>`).join('');
+}
+
+function setBillQtyMax() {
+  const pid = document.getElementById('bill-product').value;
+  const p = products.find(x=>x.id===pid);
+  if (p) { document.getElementById('bill-qty').max = p.stock; document.getElementById('bill-qty').value=1; }
+}
+
+function addBillItem() {
+  const pid = document.getElementById('bill-product').value;
+  const qty = parseInt(document.getElementById('bill-qty').value)||1;
+  if (!pid) { toast('Select a product'); return; }
+  const p = products.find(x=>x.id===pid);
+  if (!p) return;
+  if (qty > p.stock) { toast(`Only ${p.stock} ${p.unit} available`); return; }
+  const existing = billItems.find(it=>it.pid===pid);
+  if (existing) {
+    if (existing.qty+qty > p.stock) { toast('Not enough stock'); return; }
+    existing.qty += qty;
+  } else {
+    billItems.push({ pid, name:p.name, price:p.price, qty, unit:p.unit });
+  }
+  renderBillSummary();
+  document.getElementById('bill-product').value='';
+  document.getElementById('bill-qty').value=1;
+  toast(`${p.name} added`);
+}
+
+function renderBillSummary() {
+  const list = document.getElementById('bill-items-list');
+  if (!billItems.length) {
+    list.innerHTML = '<div class="empty-state" style="padding:20px"><div>No items added yet</div></div>';
+    document.getElementById('bill-totals').style.display='none';
+    return;
+  }
+  list.innerHTML = billItems.map((it,i) => `
+    <div class="bill-item-row">
+      <div>
+        <div style="font-size:13px;font-weight:500">${it.name}</div>
+        <div style="font-size:11.5px;color:var(--text3)">₹${it.price} × ${it.qty} ${it.unit}</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:13px;font-weight:500">₹${fmt(it.price*it.qty)}</div>
+      <input type="number" class="form-input" value="${it.qty}" min="1" style="width:70px" onchange="updateItemQty(${i},this.value)">
+      <button onclick="removeItem(${i})" style="background:none;border:none;cursor:pointer;color:var(--danger);font-size:18px;line-height:1">×</button>
+    </div>
+  `).join('') + '<div style="margin-bottom:14px"></div>';
+  document.getElementById('bill-totals').style.display='block';
+  updateBillTotals();
+}
+
+function updateItemQty(i, val) {
+  const qty = parseInt(val)||1;
+  const p = products.find(x=>x.id===billItems[i].pid);
+  if (p && qty > p.stock) { toast('Not enough stock'); billItems[i].qty=p.stock; }
+  else billItems[i].qty = qty;
+  renderBillSummary();
+}
+
+function removeItem(i) { billItems.splice(i,1); renderBillSummary(); }
+
+function updateBillTotals() {
+  const subtotal = billItems.reduce((s,it)=>s+(it.price*it.qty),0);
+  const discount = parseFloat(document.getElementById('bill-discount').value)||0;
+  const discounted = subtotal * (1 - discount/100);
+  const tax = discounted * 0.05;
+  const total = discounted + tax;
+  document.getElementById('bill-subtotal').textContent = '₹'+fmt(subtotal);
+  document.getElementById('bill-tax').textContent = '₹'+fmt(tax);
+  document.getElementById('bill-grand').textContent = '₹'+fmt(total);
+}
+
+function clearBill() { billItems=[]; document.getElementById('bill-discount').value=0; renderBillSummary(); }
+
+function generateBill() {
+  if (!billItems.length) { toast('Add items to the bill'); return; }
+  const customer = document.getElementById('bill-customer').value.trim()||'Walk-in';
+  const phone = document.getElementById('bill-phone').value.trim();
+  const subtotal = billItems.reduce((s,it)=>s+(it.price*it.qty),0);
+  const discount = parseFloat(document.getElementById('bill-discount').value)||0;
+  const discounted = subtotal*(1-discount/100);
+  const tax = discounted*0.05;
+  const total = discounted+tax;
+  const num = billCounter++;
+  const now = Date.now();
+  // Deduct stock
+  billItems.forEach(it => {
+    const p = products.find(x=>x.id===it.pid);
+    if (p) p.stock = Math.max(0, p.stock-it.qty);
+  });
+  const bill = { id:'b'+now, num, date:now, customer, phone, items:[...billItems], subtotal, discount, tax, total };
+  bills.unshift(bill);
+  saveData();
+  // Show receipt
+  document.getElementById('receipt-content').innerHTML = buildReceipt(bill);
+  openModal('receipt-modal');
+  billItems=[]; document.getElementById('bill-discount').value=0;
+  document.getElementById('bill-customer').value='';
+  document.getElementById('bill-phone').value='';
+  renderBillSummary(); populateBillingProducts(); checkLowStock();
+  toast('Bill #'+num+' generated!');
+}
+
+function buildReceipt(bill) {
+  const line = (l,r) => `<div style="display:flex;justify-content:space-between"><span>${l}</span><span>${r}</span></div>`;
+  return `
+    <div style="text-align:center;margin-bottom:10px">
+      <div style="font-size:15px;font-weight:600">🛒 FreshMart</div>
+      <div style="font-size:11px;color:var(--text3)">GST Bill · Thank you for shopping!</div>
+    </div>
+    <div class="receipt-divider"></div>
+    ${line('Bill #',bill.num)}
+    ${line('Date', new Date(bill.date).toLocaleString('en-IN'))}
+    ${line('Customer', bill.customer)}
+    ${bill.phone?line('Phone',bill.phone):''}
+    <div class="receipt-divider"></div>
+    ${bill.items.map(it=>line(`${it.name} × ${it.qty} ${it.unit}`, '₹'+fmt(it.price*it.qty))).join('')}
+    <div class="receipt-divider"></div>
+    ${line('Subtotal','₹'+fmt(bill.subtotal))}
+    ${bill.discount?line('Discount ('+bill.discount+'%)','−₹'+fmt(bill.subtotal*bill.discount/100)):''}
+    ${line('GST (5%)','₹'+fmt(bill.tax))}
+    <div class="receipt-divider"></div>
+    <div style="display:flex;justify-content:space-between;font-weight:600;font-size:14px">${line('TOTAL','₹'+fmt(bill.total))}</div>
+    <div class="receipt-divider"></div>
+    <div style="text-align:center;font-size:11px;color:var(--text3);margin-top:8px">Visit again! · FreshMart</div>
+  `;
+}
+
+function printBill() { window.print(); }
+
+// ──────────────────────────────────────────────
+// BILLS HISTORY
+// ──────────────────────────────────────────────
+function renderBills() {
+  const q = (document.getElementById('bill-search').value||'').toLowerCase();
+  let list = bills.filter(b => !q || b.customer.toLowerCase().includes(q) || String(b.num).includes(q));
+  list = [...list].sort((a,b)=>b.date-a.date);
+  document.getElementById('bills-total-display').textContent = `${list.length} bill(s) · ₹${fmt(list.reduce((s,b)=>s+b.total,0))} total`;
+  const tbody = document.getElementById('bills-table');
+  if (!list.length) { tbody.innerHTML='<tr><td colspan="6"><div class="empty-state">No bills found</div></td></tr>'; return; }
+  tbody.innerHTML = list.map(b=>`
+    <tr>
+      <td><span style="font-family:var(--mono);font-weight:500">#${b.num}</span></td>
+      <td>${new Date(b.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})}</td>
+      <td>${b.customer}${b.phone?`<br><span style="font-size:11px;color:var(--text3)">${b.phone}</span>`:''}</td>
+      <td>${b.items.length} item(s)</td>
+      <td style="font-family:var(--mono);font-weight:500">₹${fmt(b.total)}</td>
+      <td>
+        <button class="btn btn-outline btn-sm" onclick="viewBill('${b.id}')">View</button>
+        <button class="btn btn-sm" style="border:1px solid var(--danger-light);color:var(--danger);background:transparent;margin-left:4px" onclick="deleteBill('${b.id}')">Delete</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function viewBill(id) {
+  const bill = bills.find(b=>b.id===id);
+  if (!bill) return;
+  document.getElementById('bill-detail-title').textContent='Bill #'+bill.num;
+  document.getElementById('bill-detail-content').innerHTML = buildReceipt(bill);
+  openModal('bill-detail-modal');
+}
+function deleteBill(id) {
+  if (!confirm('Delete this bill?')) return;
+  bills = bills.filter(b=>b.id!==id);
+  saveData(); renderBills(); toast('Bill deleted');
+}
+function printBillDetail() { window.print(); }
+
+// ──────────────────────────────────────────────
+// CATEGORIES
+// ──────────────────────────────────────────────
+function renderCategories() {
+  const tbody = document.getElementById('categories-table');
+  if (!categories.length) { tbody.innerHTML='<tr><td colspan="3"><div class="empty-state">No categories yet</div></td></tr>'; return; }
+  tbody.innerHTML = categories.map(c=>{
+    const count = products.filter(p=>p.cat===c.id).length;
+    return `<tr>
+      <td><strong>${c.name}</strong></td>
+      <td>${count} product(s)</td>
+      <td>
+        <button class="btn btn-sm" style="border:1px solid var(--danger-light);color:var(--danger);background:transparent" onclick="deleteCategory('${c.id}')">Delete</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function saveCategory() {
+  const name = document.getElementById('cat-name').value.trim();
+  if (!name) { toast('Enter a category name'); return; }
+  if (categories.find(c=>c.name.toLowerCase()===name.toLowerCase())) { toast('Category already exists'); return; }
+  categories.push({ id:'c'+Date.now(), name });
+  saveData(); closeModal('category-modal');
+  document.getElementById('cat-name').value='';
+  renderCategories(); populateCategoryFilter();
+  toast('Category added');
+}
+
+function deleteCategory(id) {
+  if (products.find(p=>p.cat===id)) { toast('Remove all products in this category first'); return; }
+  if (!confirm('Delete this category?')) return;
+  categories = categories.filter(c=>c.id!==id);
+  saveData(); renderCategories(); populateCategoryFilter();
+  toast('Category deleted');
+}
+
+// ──────────────────────────────────────────────
+// LOW STOCK CHECK
+// ──────────────────────────────────────────────
+function checkLowStock() {
+  const low = products.filter(p=>p.stock<=p.lowStock);
+  const badge = document.getElementById('low-stock-count');
+  const alert = document.getElementById('low-stock-alert');
+  const msg = document.getElementById('low-stock-msg');
+  if (low.length) {
+    badge.style.display='inline-block'; badge.textContent=low.length;
+    alert.style.display='flex';
+    msg.textContent = `${low.length} item(s) are running low on stock`;
+  } else {
+    badge.style.display='none'; alert.style.display='none';
+  }
+}
+
+// ──────────────────────────────────────────────
+// UTILS
+// ──────────────────────────────────────────────
+function fmt(n) { return parseFloat(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2800);
+}
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click', e=>{ if(e.target===o) o.classList.remove('open'); });
+});
+
+// Open product modal → populate cats
+document.querySelector('[onclick="openModal(\'product-modal\')"]').addEventListener('click', ()=>{
+  editingProductId=null;
+  populateProductCatSelect();
+  document.getElementById('product-modal-title').textContent='Add Product';
+  ['p-name','p-price','p-stock','p-sku'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('p-lowstock').value='5';
+});
+
+// Set date in topbar
+document.getElementById('topbar-date').textContent = new Date().toLocaleDateString('en-IN',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+
+// INIT
+checkLowStock();
+renderDashboard();
+populateCategoryFilter();
+</script>
+</body>
+>>>>>>> e6a92c2e2ab4a9cf67c514f61c3f446e76ee24a9
 </html>
