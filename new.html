@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FreshMart</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    select, input, button { padding: 8px; margin: 5px; }
+    ul { list-style: none; padding: 0; }
+  </style>
+</head>
+
+<body>
+
+<h2>FreshMart Billing</h2>
+
+
+<select id="product">
+  <option value="Rice-80">Rice ₹80</option>
+  <option value="Milk-30">Milk ₹30</option>
+  <option value="Eggs-6">Eggs ₹6</option>
+</select>
+
+<input type="number" id="qty" value="1" min="1">
+
+<button onclick="addItem()">Add</button>
+
+<h3>Bill</h3>
+<ul id="bill"></ul>
+
+<h3>Total: ₹<span id="total">0</span></h3>
+
+<script>
+let total = 0;
+
+function addItem() {
+  let data = document.getElementById("product").value.split("-");
+  let name = data[0];
+  let price = parseInt(data[1]);
+  let qty = parseInt(document.getElementById("qty").value);
+
+  let amount = price * qty;
+  total += amount;
+
+  document.getElementById("bill").innerHTML +=
+    "<li>" + name + " x " + qty + " = ₹" + amount + "</li>";
+  document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
