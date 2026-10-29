@@ -1,55 +1,36 @@
  <div align="center">
 
-# 🛒 FRESHMART
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:061A40,100:007BFF&height=230&section=header&text=FreshMart&fontColor=ffffff&fontSize=65&fontAlignY=38&desc=Supermarket%20Management%20System&descAlignY=60&descSize=20" width="100%" alt="FreshMart — Supermarket Management System" />
 
-### SUPERMARKET MANAGEMENT SYSTEM
-
-**Smart Inventory. Seamless Billing. Better Store Management.**
-
-A modern supermarket management dashboard built to simplify inventory tracking, sales billing, and daily store operations.
-
-<br />
-
-<a href="https://saheera-006.github.io/supermarket/">
-  <img src="https://img.shields.io/badge/🚀_EXPLORE_LIVE_DEMO-2563EB?style=for-the-badge&labelColor=080D1A" alt="Live Demo" />
-</a>
-&nbsp;
-<a href="https://github.com/Saheera-006/supermarket">
-  <img src="https://img.shields.io/badge/VIEW_SOURCE_CODE-111827?style=for-the-badge&logo=github&logoColor=60A5FA" alt="Source Code" />
-</a>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=17&pause=1200&color=38BDF8&center=true&vCenter=true&width=700&lines=Smart+Inventory+Management;Seamless+Supermarket+Billing;Sales+Insights+%26+Stock+Tracking;Built+with+HTML%2C+CSS+%26+JavaScript" alt="FreshMart feature animation" />
 
 <br /><br />
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" />
-<img src="https://img.shields.io/badge/CSS3-2563EB?style=flat-square&logo=css3&logoColor=white" alt="CSS3" />
-<img src="https://img.shields.io/badge/JavaScript-FACC15?style=flat-square&logo=javascript&logoColor=111827" alt="JavaScript" />
-<img src="https://img.shields.io/badge/LocalStorage-64748B?style=flat-square&logo=googlechrome&logoColor=white" alt="LocalStorage" />
-<img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins" />
-<img src="https://img.shields.io/badge/GitHub_Pages-111827?style=flat-square&logo=githubpages&logoColor=60A5FA" alt="GitHub Pages" />
+[![Live Demo](https://img.shields.io/badge/🚀_LIVE_DEMO-007BFF?style=for-the-badge&labelColor=061A40)](https://saheera-006.github.io/supermarket/)
+[![Repository](https://img.shields.io/badge/GitHub-REPOSITORY-0A0A0A?style=for-the-badge&logo=github&logoColor=38BDF8)](https://github.com/Saheera-006/supermarket)
+[![GitHub Pages](https://img.shields.io/badge/DEPLOYMENT-GitHub_Pages-061A40?style=for-the-badge&logo=githubpages&logoColor=38BDF8)](https://saheera-006.github.io/supermarket/)
+
+<br />
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%" alt="" />
 
 </div>
 
----
+## <div align="center">🌌 About FreshMart</div>
+
+**FreshMart** is a browser-based supermarket management application designed to simplify everyday store operations through a clean, interactive dashboard.
+
+From inventory management to customer billing, FreshMart brings essential supermarket workflows together in one place. It combines product management, stock monitoring, sales summaries, category organization, and printable receipts in a single web interface.
 
 <div align="center">
 
-## ✦ ABOUT THE PROJECT
+| 📦 Inventory | 🧾 Billing | 📊 Analytics |
+|:---:|:---:|:---:|
+| Product and stock management | Automated bill calculations | Revenue and sales summaries |
 
 </div>
 
-FreshMart is a browser-based supermarket management application that brings essential store operations together in one interactive dashboard.
-
-Designed with a clean interface and practical workflows, it helps users organize products, monitor inventory, calculate bills, and review sales activity.
-
-**The goal:** make everyday supermarket management simpler, faster, and more organized.
-
----
-
-<div align="center">
-
-## ⚡ CORE FEATURES
-
-</div>
+## <div align="center">⚡ Features & Capabilities</div>
 
 <table>
 <tr>
@@ -57,22 +38,22 @@ Designed with a clean interface and practical workflows, it helps users organize
 
 ### 📊 Dashboard Analytics
 
-- Revenue summaries
-- Seven-day sales visualization
-- Recent transaction overview
-- Top-selling product insights
+- Revenue summaries and sales statistics
+- Seven-day sales chart
+- Recent billing activity
+- Top-selling product overview
 - Low-stock monitoring
 
 </td>
 <td width="50%" valign="top">
 
-### 📦 Inventory Control
+### 📦 Inventory Management
 
 - Add, edit, and delete products
 - Search and category filtering
-- Stock quantity tracking
-- Product pricing and units
-- Low-stock alerts
+- Track stock quantities and prices
+- Manage product units
+- Monitor low-stock items
 
 </td>
 </tr>
@@ -81,99 +62,68 @@ Designed with a clean interface and practical workflows, it helps users organize
 
 ### 🧾 Smart Billing
 
-- Customer details management
-- Product and quantity selection
-- Automatic subtotal calculation
-- Discount and GST calculations
-- Receipt preview and printing
+- Enter customer details
+- Select products and quantities
+- Calculate subtotals and discounts
+- Apply 5% GST
+- Generate and print receipts
+- Update stock after billing
 
 </td>
 <td width="50%" valign="top">
 
-### 📜 Transaction Management
+### 📜 Bills & Categories
 
-- Browse previous bills
-- Search transaction records
-- View bill details
-- Delete existing bill records
-- Update inventory after billing
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🗂️ Category Management
-
-- Create product categories
-- Organize inventory
+- Search and review bill history
+- View and delete bill records
+- Create and manage categories
 - Prevent duplicate category names
-- Protect categories assigned to products
-
-</td>
-<td width="50%" valign="top">
-
-### 💾 Local Data Persistence
-
-- Browser-based LocalStorage
-- Saved products and categories
-- Stored billing records
-- Sample data for demonstration
+- Protect categories currently in use
 
 </td>
 </tr>
 </table>
 
+<div align="center">
+
+<img src="https://img.shields.io/badge/INTERACTIVE_DASHBOARD-061A40?style=for-the-badge&logo=windowsterminal&logoColor=38BDF8" alt="Interactive dashboard" />
+<img src="https://img.shields.io/badge/CLIENT_SIDE_STORAGE-000000?style=for-the-badge&logo=googlechrome&logoColor=38BDF8" alt="Client-side storage" />
+
+</div>
+
 ---
+
+## <div align="center">🛠️ Tech Stack</div>
 
 <div align="center">
 
-## 🛠️ TECHNOLOGY STACK
+### Languages & Web Technologies
 
-*Built with lightweight web technologies.*
+<img src="https://skillicons.dev/icons?i=html,css,js&theme=dark" alt="HTML5 CSS3 JavaScript" />
+
+### Tools & Deployment
+
+<img src="https://skillicons.dev/icons?i=git,github,jenkins&theme=dark" alt="Git GitHub Jenkins" />
 
 <br />
 
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
-  <img src="https://skillicons.dev/icons?i=html" width="58" alt="HTML5" />
-</a>
-&nbsp;&nbsp;
-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
-  <img src="https://skillicons.dev/icons?i=css" width="58" alt="CSS3" />
-</a>
-&nbsp;&nbsp;
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-  <img src="https://skillicons.dev/icons?i=js" width="58" alt="JavaScript" />
-</a>
-&nbsp;&nbsp;
-<a href="https://www.jenkins.io/">
-  <img src="https://skillicons.dev/icons?i=jenkins" width="58" alt="Jenkins" />
-</a>
-&nbsp;&nbsp;
-<a href="https://github.com/">
-  <img src="https://skillicons.dev/icons?i=github" width="58" alt="GitHub" />
-</a>
-
-<br /><br />
-
-| TECHNOLOGY | ROLE |
-|:---:|---|
-| **HTML5** | Structures the application interface |
-| **CSS3** | Styling, layout, and responsive presentation |
-| **JavaScript** | UI interactions, inventory operations, and billing logic |
-| **LocalStorage** | Saves data in the current browser |
-| **Jenkins** | Basic CI pipeline configuration |
-| **GitHub Pages** | Hosts the live website |
+<img src="https://img.shields.io/badge/LocalStorage-Browser_Data_Storage-061A40?style=flat-square&logo=googlechrome&logoColor=38BDF8" alt="LocalStorage" />
+<img src="https://img.shields.io/badge/GitHub_Pages-Static_Web_Hosting-000000?style=flat-square&logo=githubpages&logoColor=38BDF8" alt="GitHub Pages" />
 
 </div>
+
+| Technology | Purpose |
+|:---|:---|
+| **HTML5** | Structures the application interface |
+| **CSS3** | Styling, layouts, and responsive presentation |
+| **JavaScript** | Product operations, billing calculations, and interactive features |
+| **LocalStorage** | Stores products, categories, and bills in the browser |
+| **Jenkins** | Basic CI pipeline configuration |
+| **GitHub Pages** | Hosts the live web application |
 
 ---
 
-<div align="center">
-
-## 📁 PROJECT ARCHITECTURE
-
-</div>
+## <div align="center">📂 Project Structure</div>
 
 ```text
 supermarket/
@@ -187,84 +137,74 @@ supermarket/
 
 ---
 
-<div align="center">
+## <div align="center">🚀 Getting Started</div>
 
-## 🚀 RUN LOCALLY
+Run FreshMart on your local machine in three simple steps.
 
-</div>
-
-**01 — Clone the repository**
+**01 · Clone the repository**
 
 ```bash
 git clone https://github.com/Saheera-006/supermarket.git
 ```
 
-**02 — Open the project folder**
+**02 · Navigate to the project**
 
 ```bash
 cd supermarket
 ```
 
-**03 — Launch FreshMart**
+**03 · Launch the application**
 
-Open `index.html` in your browser, or launch it using the Live Server extension in Visual Studio Code.
-
-> No package installation or backend server is required for the current implementation.
-
----
+Open `index.html` in your web browser, or use the Live Server extension in Visual Studio Code.
 
 <div align="center">
 
-## 🔄 CONTINUOUS INTEGRATION
+<img src="https://img.shields.io/badge/NO_INSTALLATION_REQUIRED-061A40?style=for-the-badge&logo=checkmarx&logoColor=38BDF8" alt="No installation required" />
 
 </div>
 
-The repository includes a `Jenkinsfile` with three configured stages:
+No package installation or backend server is required for the current version.
 
-| Stage | Purpose |
-|---|---|
-| **Clone Repository** | Checks out the `main` branch from GitHub |
+---
+
+## <div align="center">🔄 CI Pipeline</div>
+
+The project includes a `Jenkinsfile` defining a basic pipeline with the following stages:
+
+| Stage | Description |
+|:---|:---|
+| **Clone Repository** | Retrieves the project from GitHub |
 | **Build** | Placeholder for a future build process |
-| **Test** | Placeholder for automated tests |
+| **Test** | Placeholder for future automated testing |
 
-The current pipeline demonstrates a basic CI workflow structure. Build verification and automated testing are not yet implemented.
+> The pipeline currently contains placeholder build and test stages. Automated testing and production build verification have not yet been implemented.
 
 ---
 
+## <div align="center">🌐 Live Deployment</div>
+
 <div align="center">
 
-## 🌐 LIVE APPLICATION
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:061A40,100:000000&height=100&section=header&text=Explore%20FreshMart&fontSize=28&fontColor=38BDF8" width="100%" alt="Explore FreshMart" />
 
-### Experience FreshMart in Action
+<br />
 
-<a href="https://saheera-006.github.io/supermarket/">
-  <img src="https://img.shields.io/badge/OPEN_LIVE_WEBSITE-1D4ED8?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Open Live Website" />
-</a>
+[![OPEN LIVE WEBSITE](https://img.shields.io/badge/OPEN_LIVE_WEBSITE-007BFF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://saheera-006.github.io/supermarket/)
 
-<br /><br />
+**Live Website:** [saheera-006.github.io/supermarket](https://saheera-006.github.io/supermarket/)
 
-**Live URL**
-
-[saheera-006.github.io/supermarket](https://saheera-006.github.io/supermarket/)
-
-**Source Code**
-
-[github.com/Saheera-006/supermarket](https://github.com/Saheera-006/supermarket)
+**Source Code:** [github.com/Saheera-006/supermarket](https://github.com/Saheera-006/supermarket)
 
 </div>
 
 ---
 
-<div align="center">
-
-## 🔮 FUTURE ROADMAP
-
-</div>
+## <div align="center">🔮 Future Roadmap</div>
 
 - [ ] Backend API integration
 - [ ] Centralized database storage
-- [ ] Authentication and role-based access
-- [ ] Automated application testing
+- [ ] User authentication and role-based access
+- [ ] Automated testing
 - [ ] Exportable sales reports
 - [ ] Enhanced CI/CD automation
 
@@ -272,23 +212,22 @@ The current pipeline demonstrates a basic CI workflow structure. Build verificat
 
 <div align="center">
 
-## 👩‍💻 DEVELOPER
+## 👩‍💻 Developer
 
 ### Fathima Saheera J
 
-**Computer Science & Engineering Student**  
-*Aspiring Full Stack Developer*
+*Computer Science & Engineering Student · Aspiring Full Stack Developer*
 
-<a href="https://github.com/Saheera-006">
-  <img src="https://img.shields.io/badge/GitHub-Visit_My_Profile-111827?style=for-the-badge&logo=github&logoColor=60A5FA" alt="GitHub Profile" />
-</a>
+<br />
 
-<br /><br />
+[![GitHub Profile](https://img.shields.io/badge/VISIT_MY_GITHUB-061A40?style=for-the-badge&logo=github&logoColor=38BDF8)](https://github.com/Saheera-006)
 
----
+<br />
 
-### 💙 Built with HTML, CSS & JavaScript
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:007BFF,50:061A40,100:000000&height=120&section=footer" width="100%" alt="" />
 
-**If you like this project, consider giving it a ⭐**
+**💙 Designed to simplify supermarket operations. Built with HTML, CSS & JavaScript.**
+
+⭐ If you find this project useful, consider giving the repository a star!
 
 </div>
